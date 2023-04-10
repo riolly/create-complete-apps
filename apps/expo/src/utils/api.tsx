@@ -28,7 +28,7 @@ const getBaseUrl = () => {
    */
   const localhost = Constants.manifest?.debuggerHost?.split(":")[0];
   if (!localhost) {
-    return "https://edenquest.vercel.app";
+    return process.env.API_URL;
     // throw new Error(
     //   "Failed to get localhost. Please point to your production server.",
     // );

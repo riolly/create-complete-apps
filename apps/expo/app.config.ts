@@ -1,8 +1,8 @@
 import type { ExpoConfig } from "@expo/config";
 
 const defineConfig = (): ExpoConfig => ({
-  name: "expo",
-  slug: "expo",
+  name: "Eden Quest",
+  slug: "eden-quest",
   scheme: "expo",
   version: "1.0.0",
   orientation: "portrait",
@@ -19,7 +19,7 @@ const defineConfig = (): ExpoConfig => ({
   assetBundlePatterns: ["**/*"],
   ios: {
     supportsTablet: true,
-    bundleIdentifier: "your.bundle.identifier",
+    bundleIdentifier: "com.communione.edenquest",
   },
   android: {
     adaptiveIcon: {
@@ -29,7 +29,7 @@ const defineConfig = (): ExpoConfig => ({
   },
   extra: {
     eas: {
-      projectId: "your-project-id",
+      projectId: "48acc0b4-4b0e-4653-9dce-7e5174eedeb8",
     },
   },
   plugins: ["./expo-plugins/with-modify-gradle.js"],
