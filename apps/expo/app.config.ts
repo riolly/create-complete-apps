@@ -29,7 +29,7 @@ const defineConfig = (): ExpoConfig => ({
   },
   extra: {
     eas: {
-      projectId: "48acc0b4-4b0e-4653-9dce-7e5174eedeb8",
+      projectId: "2760fec8-3c7b-4d61-b8d8-71a897dc308d",
     },
   },
   plugins: ["./expo-plugins/with-modify-gradle.js"],
