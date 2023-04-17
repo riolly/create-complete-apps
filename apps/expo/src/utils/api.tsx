@@ -28,10 +28,10 @@ const getBaseUrl = () => {
    */
   const localhost = Constants.manifest?.debuggerHost?.split(":")[0];
   if (!localhost) {
-    // return "https://your-production-url.com";
-    throw new Error(
-      "Failed to get localhost. Please point to your production server.",
-    );
+    return process.env.API_URL;
+    // throw new Error(
+    //   "Failed to get localhost. Please point to your production server.",
+    // );
   }
   return `http://${localhost}:3000`;
 };

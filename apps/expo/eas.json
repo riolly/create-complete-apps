@@ -15,11 +15,17 @@
       "ios": {
         "simulator": true,
         "resourceClass": "m-medium"
+      },
+      "env": {
+        "API_URL": "https://edenquest-preview.vercel.app"
       }
     },
     "production": {
       "ios": {
         "resourceClass": "m-medium"
+      },
+      "env": {
+        "API_URL": "https://edenquest.vercel.app"
       }
     }
   },
