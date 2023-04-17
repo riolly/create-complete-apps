@@ -18,11 +18,17 @@
       "ios": {
         "simulator": true,
         "resourceClass": "m-medium"
+      },
+      "env": {
+        "API_URL": "https://edengarden.quest"
       }
     },
     "production": {
       "ios": {
         "resourceClass": "m-medium"
+      },
+      "env": {
+        "API_URL": "https://preview.edengarden.quest"
       }
     }
   },
