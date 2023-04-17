@@ -12,12 +12,15 @@
     },
     "preview": {
       "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
       "ios": {
         "simulator": true,
         "resourceClass": "m-medium"
       },
       "env": {
-        "API_URL": "https://edenquest-preview.vercel.app"
+        "API_URL": "https://preview-edenquest.vercel.app"
       }
     },
     "production": {
