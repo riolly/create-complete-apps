@@ -29,10 +29,7 @@ const getBaseUrl = () => {
   const localhost = Constants.manifest?.debuggerHost?.split(":")[0];
   if (!localhost) {
     const apiUrl = Constants.expoConfig?.extra?.apiUrl as string;
-    if (apiUrl) {
-      console.log(apiUrl, "<<<<<<<<< API URL");
-      return apiUrl;
-    }
+    if (apiUrl) return apiUrl;
     throw new Error("Failed to get API_URL. Please check env config.");
   }
   return `http://${localhost}:3000`;
