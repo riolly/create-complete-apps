@@ -20,7 +20,7 @@
         "resourceClass": "m-medium"
       },
       "env": {
-        "API_URL": "https://preview-edenquest.vercel.app"
+        "API_URL": "https://edengarden.quest"
       }
     },
     "production": {
@@ -28,7 +28,7 @@
         "resourceClass": "m-medium"
       },
       "env": {
-        "API_URL": "https://edenquest.vercel.app"
+        "API_URL": "https://preview.edengarden.quest"
       }
     }
   },
