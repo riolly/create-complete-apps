@@ -26,11 +26,13 @@ const defineConfig = (): ExpoConfig => ({
       foregroundImage: "./assets/icon.png",
       backgroundColor: "#1F104A",
     },
+    package: "com.communione.edenquest",
   },
   extra: {
     eas: {
       projectId: "2760fec8-3c7b-4d61-b8d8-71a897dc308d",
     },
+    apiUrl: process.env.API_URL,
   },
   plugins: ["./expo-plugins/with-modify-gradle.js"],
 });
