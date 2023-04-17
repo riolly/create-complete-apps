@@ -7,7 +7,11 @@ module.exports = function (api) {
   process.env.EXPO_ROUTER_APP_ROOT = "../../apps/expo/src/app";
 
   return {
-    plugins: ["nativewind/babel", String(require.resolve("expo-router/babel"))],
+    plugins: [
+      "nativewind/babel",
+      "expo-router/babel",
+      ["module-resolver", { alias: { "~": "./src" } }],
+    ],
     presets: ["babel-preset-expo"],
   };
 };
