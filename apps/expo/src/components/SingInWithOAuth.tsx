@@ -1,0 +1,45 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import * as React from "react";
+import { Button } from "react-native";
+import { Redirect } from "expo-router";
+import * as WebBrowser from "expo-web-browser";
+import { useOAuth } from "@clerk/clerk-expo";
+
+import { useWarmUpBrowser } from "~/hooks/useWarmUpBrowser";
+
+WebBrowser.maybeCompleteAuthSession();
+
+const SignInWithOAuth = () => {
+  // Warm up the android browser to improve UX
+  // https://docs.expo.dev/guides/authentication/#improving-user-experience
+  useWarmUpBrowser();
+
+  const { startOAuthFlow } = useOAuth({
+    strategy: "oauth_google",
+  });
+
+  const onPress = React.useCallback(async () => {
+    try {
+      const { createdSessionId, signIn, signUp, setActive } =
+        await startOAuthFlow();
+
+      if (createdSessionId) {
+        setActive({ session: createdSessionId });
+      } else {
+        // Use signIn or signUp for next steps such as MFA
+      }
+    } catch (err) {
+      console.error("OAuth error", err);
+    }
+  }, [startOAuthFlow]);
+
+  return (
+    <Button
+      title="Sign in with Google"
+      onPress={() => {
+        void onPress();
+      }}
+    />
+  );
+};
+export default SignInWithOAuth;
