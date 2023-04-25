@@ -1,5 +1,6 @@
 import React from "react";
 import Constants from "expo-constants";
+import { useAuth } from "@clerk/clerk-expo";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
 import { createTRPCReact } from "@trpc/react-query";
@@ -26,7 +27,10 @@ const getBaseUrl = () => {
    * **NOTE**: This is only for development. In production, you'll want to set the
    * baseUrl to your production API URL.
    */
-  const localhost = Constants.manifest?.debuggerHost?.split(":")[0];
+  const debuggerHost =
+    Constants.manifest?.debuggerHost ??
+    Constants.manifest2?.extra?.expoGo?.debuggerHost;
+  const localhost = debuggerHost?.split(":")[0];
   if (!localhost) {
     const apiUrl = Constants.expoConfig?.extra?.apiUrl as string;
     if (apiUrl) return apiUrl;
@@ -42,12 +46,19 @@ const getBaseUrl = () => {
 export const TRPCProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  const { getToken } = useAuth();
   const [queryClient] = React.useState(() => new QueryClient());
   const [trpcClient] = React.useState(() =>
     api.createClient({
       transformer: superjson,
       links: [
         httpBatchLink({
+          async headers() {
+            const authToken = await getToken();
+            return {
+              Authorization: authToken ?? undefined,
+            };
+          },
           url: `${getBaseUrl()}/api/trpc`,
         }),
       ],

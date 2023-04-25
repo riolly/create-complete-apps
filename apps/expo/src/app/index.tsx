@@ -2,9 +2,11 @@ import React from "react";
 import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Stack, useRouter } from "expo-router";
+import { SignedIn, SignedOut, useAuth } from "@clerk/clerk-expo";
 import { FlashList } from "@shopify/flash-list";
 
 import { api, type RouterOutputs } from "~/utils/api";
+import SignInWithOAuth from "~/components/SingInWithOAuth";
 
 const PostCard: React.FC<{
   post: RouterOutputs["post"]["all"][number];
@@ -97,11 +99,15 @@ const Index = () => {
     <SafeAreaView className="bg-[#1F104A]">
       {/* Changes page title visible on the header */}
       <Stack.Screen options={{ title: "Home Page" }} />
+
       <View className="h-full w-full p-4">
         <Text className="mx-auto pb-2 text-5xl font-bold text-white">
           Create <Text className="text-pink-400">T3</Text> Turbo
         </Text>
 
+        <SignedIn>
+          <SignOut />
+        </SignedIn>
         <Button
           onPress={() => void utils.post.all.invalidate()}
           title="Refresh posts"
@@ -126,9 +132,31 @@ const Index = () => {
           )}
         />
 
-        <CreatePost />
+        <SignedIn>
+          <CreatePost />
+        </SignedIn>
+        <SignedOut>
+          <SignInWithOAuth />
+        </SignedOut>
       </View>
     </SafeAreaView>
+  );
+};
+
+const SignOut = () => {
+  const { isLoaded, signOut } = useAuth();
+  if (!isLoaded) {
+    return null;
+  }
+  return (
+    <View>
+      <Button
+        title="Sign Out"
+        onPress={() => {
+          void signOut();
+        }}
+      />
+    </View>
   );
 };
 
