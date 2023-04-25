@@ -12,23 +12,22 @@
     },
     "preview": {
       "distribution": "internal",
-      "android": {
-        "buildType": "apk"
-      },
       "ios": {
         "simulator": true,
         "resourceClass": "m-medium"
       },
       "env": {
-        "API_URL": "https://edengarden.quest"
+        "API_URL": "https://preview.edengarden.quest",
+        "APP_VARIANT": "preview"
       }
     },
     "production": {
+      "distribution": "internal",
       "ios": {
         "resourceClass": "m-medium"
       },
       "env": {
-        "API_URL": "https://preview.edengarden.quest"
+        "API_URL": "https://edengarden.quest"
       }
     }
   },
