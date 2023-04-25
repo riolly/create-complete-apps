@@ -1,7 +1,9 @@
 import type { ExpoConfig } from "@expo/config";
 
+const IS_PREV = process.env.APP_VARIANT === "preview";
+
 const defineConfig = (): ExpoConfig => ({
-  name: "Eden Quest",
+  name: IS_PREV ? "Eden Quest (Preview)" : "Eden Quest",
   slug: "eden-quest",
   scheme: "expo",
   version: "1.0.0",
@@ -19,14 +21,18 @@ const defineConfig = (): ExpoConfig => ({
   assetBundlePatterns: ["**/*"],
   ios: {
     supportsTablet: true,
-    bundleIdentifier: "com.communione.edenquest",
+    bundleIdentifier: IS_PREV
+      ? "com.communione.edenquest.preview"
+      : "com.communione.edenquest",
   },
   android: {
     adaptiveIcon: {
       foregroundImage: "./assets/icon.png",
       backgroundColor: "#1F104A",
     },
-    package: "com.communione.edenquest",
+    package: IS_PREV
+      ? "com.communione.edenquest.preview"
+      : "com.communione.edenquest",
   },
   extra: {
     eas: {
