@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import * as React from "react";
 import { Button } from "react-native";
-import { Redirect } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
 import { useOAuth } from "@clerk/clerk-expo";
 
@@ -20,11 +18,10 @@ const SignInWithOAuth = () => {
 
   const onPress = React.useCallback(async () => {
     try {
-      const { createdSessionId, signIn, signUp, setActive } =
-        await startOAuthFlow();
+      const { createdSessionId, setActive } = await startOAuthFlow();
 
-      if (createdSessionId) {
-        setActive({ session: createdSessionId });
+      if (createdSessionId && setActive) {
+        void setActive({ session: createdSessionId });
       } else {
         // Use signIn or signUp for next steps such as MFA
       }

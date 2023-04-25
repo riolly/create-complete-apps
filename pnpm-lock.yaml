@@ -55,6 +55,9 @@ importers:
       '@trpc/server':
         specifier: ^10.20.0
         version: 10.20.0
+      '@types/react-native':
+        specifier: ^0.71.6
+        version: 0.71.6
       babel-plugin-module-resolver:
         specifier: ^5.0.0
         version: 5.0.0
@@ -3353,6 +3356,12 @@ packages:
     dependencies:
       '@types/react': 18.0.37
     dev: true
+
+  /@types/react-native@0.71.6:
+    resolution: {integrity: sha512-eCqEZ+GhW9L9o6yVoPqCCAq8Sbd6liaKlh6WviD0X7O035NEe7VQ+q9KXYL+mhyZrLI5sbX7f3G973gG6fuiyQ==}
+    dependencies:
+      '@types/react': 18.0.37
+    dev: false
 
   /@types/react@18.0.37:
     resolution: {integrity: sha512-4yaZZtkRN3ZIQD3KSEwkfcik8s0SWV+82dlJot1AbGYHCzJkWP3ENBY6wYeDRmKZ6HkrgoGAmR2HqdwYGp6OEw==}
