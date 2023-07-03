@@ -3,18 +3,22 @@
     "version": ">= 3.3.0"
   },
   "build": {
-    "development": {
-      "developmentClient": true,
-      "distribution": "internal",
+    "base": {
+      "node": "18.15.0",
       "ios": {
         "resourceClass": "m-medium"
       }
     },
+    "development": {
+      "extends": "base",
+      "developmentClient": true,
+      "distribution": "internal"
+    },
     "preview": {
+      "extends": "base",
       "distribution": "internal",
       "ios": {
-        "simulator": true,
-        "resourceClass": "m-medium"
+        "simulator": true
       },
       "env": {
         "API_URL": "https://preview.edengarden.quest",
@@ -22,10 +26,8 @@
       }
     },
     "production": {
+      "extends": "base",
       "distribution": "internal",
-      "ios": {
-        "resourceClass": "m-medium"
-      },
       "env": {
         "API_URL": "https://edengarden.quest"
       }
