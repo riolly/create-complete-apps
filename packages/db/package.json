@@ -8,15 +8,15 @@
     "clean": "rm -rf .turbo node_modules",
     "db:generate": "pnpm with-env prisma generate",
     "db:push": "pnpm with-env prisma db push --skip-generate",
-    "dev": "pnpm with-env prisma studio --port 5556",
+    "dev": "pnpm with-env prisma studio --port 5556 --browser none",
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
-    "@prisma/client": "^4.13.0"
+    "@prisma/client": "^4.15.0"
   },
   "devDependencies": {
     "dotenv-cli": "^7.2.1",
-    "prisma": "^4.13.0",
-    "typescript": "^5.0.4"
+    "prisma": "^4.15.0",
+    "typescript": "^5.1.3"
   }
 }

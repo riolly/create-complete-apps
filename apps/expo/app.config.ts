@@ -1,10 +1,48 @@
 import type { ExpoConfig } from "@expo/config";
 
-const IS_PREV = process.env.APP_VARIANT === "preview";
+type variants = "development" | "preview" | "production";
+
+const projectId = "a59ace31-dfa6-469f-a58b-450caf00cc95";
+const vars = {
+  name: {
+    development: "CFM (Dev)",
+    preview: "CFM (Prev)",
+    production: "CFM",
+  },
+  identifier: {
+    development: "com.riolly.cfm.dev",
+    preview: "com.riolly.cfm.prev",
+    production: "com.riolly.cfm",
+  },
+  apiUrl: {
+    development: "http://localhost:3000",
+    preview: "https://preview-cfm.riolly.dev",
+    production: "https://cfm.riolly.dev",
+  },
+  clerkPublishableKey: {
+    development: "pk_test_ZXZvbHZlZC1yZWRmaXNoLTM1LmNsZXJrLmFjY291bnRzLmRldiQ",
+    preview: "pk_test_ZXZvbHZlZC1yZWRmaXNoLTM1LmNsZXJrLmFjY291bnRzLmRldiQ",
+    production: "pk_live_Y2xlcmsucmlvbGx5LmRldiQ",
+  },
+};
+
+function env(variable: keyof typeof vars) {
+  let variant: variants;
+  if (!process.env.APP_VARIANT) {
+    variant = "development";
+  } else if (process.env.APP_VARIANT === "preview") {
+    variant = "preview";
+  } else {
+    variant = "production";
+  }
+
+  return vars[variable][variant];
+}
 
 const defineConfig = (): ExpoConfig => ({
-  name: IS_PREV ? "Eden Quest (Preview)" : "Eden Quest",
-  slug: "eden-quest",
+  name: env("name"),
+  slug: "create-fullstack-mobile",
+  owner: "riolly",
   scheme: "expo",
   version: "1.0.0",
   orientation: "portrait",
@@ -21,26 +59,19 @@ const defineConfig = (): ExpoConfig => ({
   assetBundlePatterns: ["**/*"],
   ios: {
     supportsTablet: true,
-    bundleIdentifier: IS_PREV
-      ? "com.communione.edenquest.preview"
-      : "com.communione.edenquest",
+    bundleIdentifier: env("identifier"),
   },
   android: {
     adaptiveIcon: {
       foregroundImage: "./assets/icon.png",
       backgroundColor: "#1F104A",
     },
-    package: IS_PREV
-      ? "com.communione.edenquest.preview"
-      : "com.communione.edenquest",
+    package: env("identifier"),
   },
   extra: {
-    eas: {
-      projectId: "2760fec8-3c7b-4d61-b8d8-71a897dc308d",
-    },
-    apiUrl: process.env.API_URL,
-    clerkPublishableKey:
-      "pk_test_YXJ0aXN0aWMtbGFjZXdpbmctMjcuY2xlcmsuYWNjb3VudHMuZGV2JA",
+    eas: { projectId },
+    apiUrl: env("apiUrl"),
+    clerkPublishableKey: env("clerkPublishableKey"),
   },
   plugins: ["./expo-plugins/with-modify-gradle.js"],
 });

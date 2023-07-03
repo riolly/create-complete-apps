@@ -1,6 +1,6 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "globalDependencies": ["**/.env"],
+  "globalDependencies": ["**/.env", "tsconfig.json"],
   "pipeline": {
     "db:generate": {
       "inputs": ["prisma/schema.prisma"],
@@ -33,13 +33,14 @@
   },
   "globalEnv": [
     "CI",
-    "API_URL",
-    "DATABASE_URL",
     "EXPO_ROUTER_APP_ROOT",
     "NODE_ENV",
     "SKIP_ENV_VALIDATION",
     "VERCEL",
     "VERCEL_URL",
+    "DATABASE_URL",
+    "CLERK_SECRET_KEY",
+    "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
     "APP_VARIANT"
   ]
 }
