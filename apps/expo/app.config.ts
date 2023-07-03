@@ -39,8 +39,7 @@ const defineConfig = (): ExpoConfig => ({
       projectId: "2760fec8-3c7b-4d61-b8d8-71a897dc308d",
     },
     apiUrl: process.env.API_URL,
-    clerkPublishableKey:
-      "pk_test_YXJ0aXN0aWMtbGFjZXdpbmctMjcuY2xlcmsuYWNjb3VudHMuZGV2JA",
+    clerkPublishableKey: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
   },
   plugins: ["./expo-plugins/with-modify-gradle.js"],
 });
