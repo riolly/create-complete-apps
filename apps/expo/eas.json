@@ -9,28 +9,17 @@
         "resourceClass": "m-medium"
       }
     },
-    "development": {
-      "extends": "base",
-      "developmentClient": true,
-      "distribution": "internal"
-    },
     "preview": {
       "extends": "base",
+      "developmentClient": true,
       "distribution": "internal",
-      "ios": {
-        "simulator": true
-      },
       "env": {
-        "API_URL": "https://preview.edengarden.quest",
         "APP_VARIANT": "preview"
       }
     },
     "production": {
       "extends": "base",
-      "distribution": "internal",
-      "env": {
-        "API_URL": "https://edengarden.quest"
-      }
+      "distribution": "internal"
     }
   },
   "submit": {
