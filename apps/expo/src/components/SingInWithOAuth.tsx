@@ -26,6 +26,7 @@ const SignInWithOAuth = () => {
         // Use signIn or signUp for next steps such as MFA
       }
     } catch (err) {
+      console.log(JSON.stringify(err, null, 2));
       console.error("OAuth error", err);
     }
   }, [startOAuthFlow]);
