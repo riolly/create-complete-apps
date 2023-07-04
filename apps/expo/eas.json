@@ -9,9 +9,16 @@
         "resourceClass": "m-medium"
       }
     },
-    "preview": {
+    "development": {
       "extends": "base",
       "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "APP_VARIANT": "development"
+      }
+    },
+    "preview": {
+      "extends": "base",
       "distribution": "internal",
       "env": {
         "APP_VARIANT": "preview"

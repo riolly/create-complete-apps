@@ -28,7 +28,7 @@ const vars = {
 
 function env(variable: keyof typeof vars) {
   let variant: variants;
-  if (!process.env.APP_VARIANT) {
+  if (process.env.APP_VARIANT === "development") {
     variant = "development";
   } else if (process.env.APP_VARIANT === "preview") {
     variant = "preview";
