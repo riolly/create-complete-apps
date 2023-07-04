@@ -4,12 +4,18 @@
   "main": "index.tsx",
   "scripts": {
     "clean": "git clean -xdf .expo .turbo node_modules",
-    "dev": "expo start --android",
+    "dev": "APP_VARIANT=development expo start --android ",
     "dev:android": "expo start --android",
     "dev:ios": "expo start --ios",
     "lint": "eslint .",
     "lint:fix": "pnpm lint --fix",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "build:dev": "APP_VARIANT=development eas build --profile=development --platform=android",
+    "build:prev": "APP_VARIANT=preview eas build --profile=preview --platform=android",
+    "build:prod": "APP_VARIANT=production eas build --profile=production --platform=android",
+    "build:dev-local": "APP_VARIANT=development eas build --profile=development --platform=android --local --output=\".apk/cfma-v$npm_package_version(dev)\".apk",
+    "build:prev-local": "APP_VARIANT=preview eas build --profile=preview --platform=android --local --output=\".apk/cfma-v$npm_package_version(prev)\".apk",
+    "build:prod-local": "APP_VARIANT=production eas build --profile=production --platform=android --local --output=\".apk/cfma-v$npm_package_version\".apk"
   },
   "dependencies": {
     "@clerk/clerk-expo": "^0.18.10",
@@ -29,6 +35,7 @@
     "expo-secure-store": "^12.1.1",
     "expo-splash-screen": "~0.18.1",
     "expo-status-bar": "~1.4.4",
+    "expo-system-ui": "~2.2.1",
     "expo-web-browser": "^12.1.1",
     "nativewind": "^2.0.11",
     "react": "18.2.0",

@@ -27,15 +27,7 @@ const vars = {
 };
 
 function env(variable: keyof typeof vars) {
-  let variant: variants;
-  if (!process.env.APP_VARIANT) {
-    variant = "development";
-  } else if (process.env.APP_VARIANT === "preview") {
-    variant = "preview";
-  } else {
-    variant = "production";
-  }
-
+  const variant = process.env.APP_VARIANT as variants;
   return vars[variable][variant];
 }
 

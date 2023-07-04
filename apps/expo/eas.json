@@ -4,18 +4,19 @@
   },
   "build": {
     "base": {
-      "node": "18.15.0",
+      "node": "18.16.0",
       "ios": {
         "resourceClass": "m-medium"
       }
     },
-    "preview": {
+    "development": {
       "extends": "base",
       "developmentClient": true,
-      "distribution": "internal",
-      "env": {
-        "APP_VARIANT": "preview"
-      }
+      "distribution": "internal"
+    },
+    "preview": {
+      "extends": "base",
+      "distribution": "internal"
     },
     "production": {
       "extends": "base",

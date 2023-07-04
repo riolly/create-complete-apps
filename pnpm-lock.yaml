@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 importers:
 
   .:
@@ -89,6 +85,9 @@ importers:
       expo-status-bar:
         specifier: ~1.4.4
         version: 1.4.4
+      expo-system-ui:
+        specifier: ~2.2.1
+        version: 2.2.1(expo@48.0.19)
       expo-web-browser:
         specifier: ^12.1.1
         version: 12.1.1(expo@48.0.19)
@@ -5873,6 +5872,18 @@ packages:
     resolution: {integrity: sha512-5DV0hIEWgatSC3UgQuAZBoQeaS9CqeWRZ3vzBR9R/+IUD87Adbi4FGhU10nymRqFXOizGsureButGZIXPs7zEA==}
     dev: false
 
+  /expo-system-ui@2.2.1(expo@48.0.19):
+    resolution: {integrity: sha512-a//8woMYFz5k4lSm8Mt84kueuQRv4TEU1ESwZQl0cEZcKlxw5e4t4Z/68KGVzCLWOMUFoCN67BgFwxpwHBbrMw==}
+    peerDependencies:
+      expo: '*'
+    dependencies:
+      '@react-native/normalize-color': 2.1.0
+      debug: 4.3.4
+      expo: 48.0.19(@babel/core@7.21.8)
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /expo-updates-interface@0.9.1(expo@48.0.19):
     resolution: {integrity: sha512-wk88LLhseQ7LJvxdN7BTKiryyqALxnrvr+lyHK3/prg76Yy0EGi2Q/oE/rtFyyZ1JmQDRbO/5pdX0EE6QqVQXQ==}
     peerDependencies:
@@ -11580,3 +11591,7 @@ packages:
   /zod@3.21.4:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
     dev: false
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
