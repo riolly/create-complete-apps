@@ -13,9 +13,9 @@
     "build:dev": "APP_VARIANT=development eas build --profile=development --platform=android",
     "build:prev": "APP_VARIANT=preview eas build --profile=preview --platform=android",
     "build:prod": "APP_VARIANT=production eas build --profile=production --platform=android",
-    "build:dev-local": "APP_VARIANT=development eas build --profile=development --platform=android --local --output=.apk/cfm-dev.apk",
-    "build:prev-local": "APP_VARIANT=preview eas build --profile=preview --platform=android --local --output=.apk/cfm-prev.apk",
-    "build:prod-local": "APP_VARIANT=production eas build --profile=production --platform=android --local --output=.apk/cfm-prod.apk"
+    "build:dev-local": "APP_VARIANT=development eas build --profile=development --platform=android --local --output=\".apk/cfma-v$npm_package_version(dev)\".apk",
+    "build:prev-local": "APP_VARIANT=preview eas build --profile=preview --platform=android --local --output=\".apk/cfma-v$npm_package_version(prev)\".apk",
+    "build:prod-local": "APP_VARIANT=production eas build --profile=production --platform=android --local --output=\".apk/cfma-v$npm_package_version\".apk"
   },
   "dependencies": {
     "@clerk/clerk-expo": "^0.18.10",
