@@ -64,8 +64,6 @@ const defineConfig = (): ExpoConfig => ({
     eas: { projectId },
     apiUrl: env("apiUrl"),
     clerkPublishableKey: env("clerkPublishableKey"),
-    // clerkPublishableKey:
-    //   "pk_test_ZXZvbHZlZC1yZWRmaXNoLTM1LmNsZXJrLmFjY291bnRzLmRldiQ",
   },
   plugins: ["./expo-plugins/with-modify-gradle.js"],
 });
