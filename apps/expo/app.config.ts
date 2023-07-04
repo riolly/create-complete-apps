@@ -27,15 +27,7 @@ const vars = {
 };
 
 function env(variable: keyof typeof vars) {
-  let variant: variants;
-  if (process.env.APP_VARIANT === "development") {
-    variant = "development";
-  } else if (process.env.APP_VARIANT === "preview") {
-    variant = "preview";
-  } else {
-    variant = "production";
-  }
-
+  const variant = process.env.APP_VARIANT as variants;
   return vars[variable][variant];
 }
 
@@ -72,6 +64,8 @@ const defineConfig = (): ExpoConfig => ({
     eas: { projectId },
     apiUrl: env("apiUrl"),
     clerkPublishableKey: env("clerkPublishableKey"),
+    // clerkPublishableKey:
+    //   "pk_test_ZXZvbHZlZC1yZWRmaXNoLTM1LmNsZXJrLmFjY291bnRzLmRldiQ",
   },
   plugins: ["./expo-plugins/with-modify-gradle.js"],
 });

@@ -12,17 +12,11 @@
     "development": {
       "extends": "base",
       "developmentClient": true,
-      "distribution": "internal",
-      "env": {
-        "APP_VARIANT": "development"
-      }
+      "distribution": "internal"
     },
     "preview": {
       "extends": "base",
-      "distribution": "internal",
-      "env": {
-        "APP_VARIANT": "preview"
-      }
+      "distribution": "internal"
     },
     "production": {
       "extends": "base",

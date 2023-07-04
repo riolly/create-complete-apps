@@ -4,12 +4,18 @@
   "main": "index.tsx",
   "scripts": {
     "clean": "git clean -xdf .expo .turbo node_modules",
-    "dev": "expo start --android",
+    "dev": "APP_VARIANT=development expo start --android ",
     "dev:android": "expo start --android",
     "dev:ios": "expo start --ios",
     "lint": "eslint .",
     "lint:fix": "pnpm lint --fix",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "build:dev": "APP_VARIANT=development eas build --profile=development --platform=android",
+    "build:prev": "APP_VARIANT=preview eas build --profile=preview --platform=android",
+    "build:prod": "APP_VARIANT=production eas build --profile=production --platform=android",
+    "build:dev-local": "APP_VARIANT=development eas build --profile=development --platform=android --local --output=.apk/cfm-dev.apk",
+    "build:prev-local": "APP_VARIANT=preview eas build --profile=preview --platform=android --local --output=.apk/cfm-prev.apk",
+    "build:prod-local": "APP_VARIANT=production eas build --profile=production --platform=android --local --output=.apk/cfm-prod.apk"
   },
   "dependencies": {
     "@clerk/clerk-expo": "^0.18.10",
