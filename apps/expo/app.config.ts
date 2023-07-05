@@ -3,6 +3,7 @@ import type { ExpoConfig } from "@expo/config";
 type variants = "development" | "preview" | "production";
 
 const projectId = "a59ace31-dfa6-469f-a58b-450caf00cc95";
+const slug = "create-fullstack-mobile-app";
 const vars = {
   name: {
     development: "CFMA (Dev)",
@@ -33,10 +34,10 @@ function env(variable: keyof typeof vars) {
 
 const defineConfig = (): ExpoConfig => ({
   name: env("name"),
-  slug: "create-fullstack-mobile",
+  slug: slug,
+  scheme: "cfma",
   owner: "riolly",
-  scheme: "expo",
-  version: "1.0.0",
+  version: "0.1.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
   userInterfaceStyle: "light",
