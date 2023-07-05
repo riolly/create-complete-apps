@@ -5,19 +5,19 @@ type variants = "development" | "preview" | "production";
 const projectId = "a59ace31-dfa6-469f-a58b-450caf00cc95";
 const vars = {
   name: {
-    development: "CFM (Dev)",
-    preview: "CFM (Prev)",
-    production: "CFM",
+    development: "CFMA (Dev)",
+    preview: "CFMA (Prev)",
+    production: "CFMA",
   },
   identifier: {
-    development: "com.riolly.cfm.dev",
-    preview: "com.riolly.cfm.prev",
-    production: "com.riolly.cfm",
+    development: "cfma.riolly.dev",
+    preview: "cfma.riolly.prev",
+    production: "cfma.riolly",
   },
   apiUrl: {
     development: "http://localhost:3000",
-    preview: "https://preview-cfm.riolly.dev",
-    production: "https://cfm.riolly.dev",
+    preview: "https://preview-cfma.riolly.dev",
+    production: "https://cfma.riolly.dev",
   },
   clerkPublishableKey: {
     development: "pk_test_ZXZvbHZlZC1yZWRmaXNoLTM1LmNsZXJrLmFjY291bnRzLmRldiQ",
