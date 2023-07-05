@@ -170,9 +170,10 @@ const SignOut = () => {
     return null;
   }
   return (
-    <View>
+    <View className="mb-1">
       <Button
         title="Sign Out"
+        color="purple"
         onPress={() => {
           void signOut();
         }}
