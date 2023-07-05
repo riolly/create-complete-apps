@@ -2,7 +2,11 @@ import type { ExpoConfig } from "@expo/config";
 
 type variants = "development" | "preview" | "production";
 
-const projectId = "a59ace31-dfa6-469f-a58b-450caf00cc95";
+const project = {
+  owner: "riolly",
+  slug: "create-fullstack-mobile",
+  id: "a59ace31-dfa6-469f-a58b-450caf00cc95",
+};
 const vars = {
   name: {
     development: "CFMA (Dev)",
@@ -32,11 +36,11 @@ function env(variable: keyof typeof vars) {
 }
 
 const defineConfig = (): ExpoConfig => ({
+  owner: project.owner,
+  slug: project.slug,
   name: env("name"),
-  slug: "create-fullstack-mobile",
-  owner: "riolly",
-  scheme: "expo",
-  version: "1.0.0",
+  scheme: "cfma",
+  version: "0.1.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
   userInterfaceStyle: "light",
@@ -61,7 +65,7 @@ const defineConfig = (): ExpoConfig => ({
     package: env("identifier"),
   },
   extra: {
-    eas: { projectId },
+    eas: { projectId: project.id },
     apiUrl: env("apiUrl"),
     clerkPublishableKey: env("clerkPublishableKey"),
   },
