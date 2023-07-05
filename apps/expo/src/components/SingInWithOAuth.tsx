@@ -54,17 +54,13 @@ const SignInWithOAuth = () => {
     <View className="space-y-2">
       <Pressable
         className="rounded-md bg-blue-500 px-4 py-3"
-        onPress={() => {
-          void onPressGoogle();
-        }}
+        onPress={() => void onPressGoogle()}
       >
         <Text className="self-center">Sign in with Google</Text>
       </Pressable>
       <Pressable
         className="rounded-md bg-blue-500 px-4 py-3"
-        onPress={() => {
-          void onPressDiscord();
-        }}
+        onPress={() => void onPressDiscord()}
       >
         <Text className="self-center">Sign in with Discord</Text>
       </Pressable>
