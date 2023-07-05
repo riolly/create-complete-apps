@@ -1,7 +1,8 @@
 import { useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
+import { useAuth, UserButton } from "@clerk/nextjs";
 
 import { api, type RouterOutputs } from "~/utils/api";
 
@@ -85,6 +86,9 @@ const Home: NextPage = () => {
 
   const deletePostMutation = api.post.delete.useMutation({
     onSettled: () => postQuery.refetch(),
+    onError: ({message}) => {
+      alert(message)
+    }
   });
 
   return (
@@ -95,8 +99,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex h-screen flex-col items-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-        <Header />
-        <div className="container mt-12 flex flex-col items-center justify-center gap-4 px-4 py-8">
+        <AuthShowcase />
+
+        <div className="container flex flex-col items-center justify-center gap-4 px-4 py-8">
           <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
             Create <span className="text-pink-400">T3</span> Turbo
           </h1>
@@ -134,17 +139,30 @@ const Home: NextPage = () => {
 
 export default Home;
 
-function Header() {
+const AuthShowcase: React.FC = () => {
+  const { isSignedIn } = useAuth();
+
   return (
-    <header
-      style={{ display: "flex", justifyContent: "space-between", padding: 20 }}
-    >
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
-      <SignedOut>
-        <SignInButton />
-      </SignedOut>
-    </header>
+    <div className="mt-8 flex flex-col items-center justify-center gap-4">
+      {isSignedIn && (
+        <div className="flex items-center justify-center">
+          <UserButton
+            appearance={{
+              elements: {
+                userButtonAvatarBox: {
+                  width: "3rem",
+                  height: "3rem",
+                },
+              },
+            }}
+          />
+        </div>
+      )}
+      {!isSignedIn && (
+        <p className="text-center text-2xl text-white">
+          <Link href="/sign-in">Sign In</Link>
+        </p>
+      )}
+    </div>
   );
-}
+};
