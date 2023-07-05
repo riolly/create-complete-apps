@@ -105,9 +105,13 @@ const Index = () => {
           Create <Text className="text-pink-400">T3</Text> Turbo
         </Text>
 
+        <SignedOut>
+          <SignInWithOAuth />
+        </SignedOut>
         <SignedIn>
           <SignOut />
         </SignedIn>
+
         <Button
           onPress={() => void utils.post.all.invalidate()}
           title="Refresh posts"
@@ -132,12 +136,7 @@ const Index = () => {
           )}
         />
 
-        <SignedIn>
-          <CreatePost />
-        </SignedIn>
-        <SignedOut>
-          <SignInWithOAuth />
-        </SignedOut>
+        <CreatePost />
       </View>
     </SafeAreaView>
   );
