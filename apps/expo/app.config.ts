@@ -2,22 +2,26 @@ import type { ExpoConfig } from "@expo/config";
 
 type variants = "development" | "preview" | "production";
 
-const projectId = "a59ace31-dfa6-469f-a58b-450caf00cc95";
+const project = {
+  owner: "riolly",
+  slug: "create-fullstack-mobile",
+  id: "a59ace31-dfa6-469f-a58b-450caf00cc95",
+};
 const vars = {
   name: {
-    development: "CFM (Dev)",
-    preview: "CFM (Prev)",
-    production: "CFM",
+    development: "CFMA (Dev)",
+    preview: "CFMA (Prev)",
+    production: "CFMA",
   },
   identifier: {
-    development: "com.riolly.cfm.dev",
-    preview: "com.riolly.cfm.prev",
-    production: "com.riolly.cfm",
+    development: "cfma.riolly.dev",
+    preview: "cfma.riolly.prev",
+    production: "cfma.riolly",
   },
   apiUrl: {
     development: "http://localhost:3000",
-    preview: "https://preview-cfm.riolly.dev",
-    production: "https://cfm.riolly.dev",
+    preview: "https://preview-cfma.riolly.dev",
+    production: "https://cfma.riolly.dev",
   },
   clerkPublishableKey: {
     development: "pk_test_ZXZvbHZlZC1yZWRmaXNoLTM1LmNsZXJrLmFjY291bnRzLmRldiQ",
@@ -32,11 +36,11 @@ function env(variable: keyof typeof vars) {
 }
 
 const defineConfig = (): ExpoConfig => ({
+  owner: project.owner,
+  slug: project.slug,
   name: env("name"),
-  slug: "create-fullstack-mobile",
-  owner: "riolly",
-  scheme: "expo",
-  version: "1.0.0",
+  scheme: "cfma",
+  version: "0.1.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
   userInterfaceStyle: "light",
@@ -61,7 +65,7 @@ const defineConfig = (): ExpoConfig => ({
     package: env("identifier"),
   },
   extra: {
-    eas: { projectId },
+    eas: { projectId: project.id },
     apiUrl: env("apiUrl"),
     clerkPublishableKey: env("clerkPublishableKey"),
   },

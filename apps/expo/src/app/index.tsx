@@ -1,5 +1,12 @@
 import React from "react";
-import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Alert,
+  Button,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Stack, useRouter } from "expo-router";
 import { SignedIn, SignedOut, useAuth } from "@clerk/clerk-expo";
@@ -7,6 +14,14 @@ import { FlashList } from "@shopify/flash-list";
 
 import { api, type RouterOutputs } from "~/utils/api";
 import SignInWithOAuth from "~/components/SingInWithOAuth";
+
+const createAlert = ({ title, message }: { title: string; message: string }) =>
+  Alert.alert(title, message, [
+    {
+      text: "Okay",
+      onPress: () => console.log("Cancel error"),
+    },
+  ]);
 
 const PostCard: React.FC<{
   post: RouterOutputs["post"]["all"][number];
@@ -93,6 +108,13 @@ const Index = () => {
 
   const deletePostMutation = api.post.delete.useMutation({
     onSettled: () => utils.post.all.invalidate(),
+    onError: ({ message }, postId) =>
+      createAlert({
+        title: `Error deleting: ${
+          postQuery.data?.find(({ id }) => id === postId)?.title
+        }`,
+        message,
+      }),
   });
 
   return (
@@ -105,9 +127,13 @@ const Index = () => {
           Create <Text className="text-pink-400">T3</Text> Turbo
         </Text>
 
+        <SignedOut>
+          <SignInWithOAuth />
+        </SignedOut>
         <SignedIn>
           <SignOut />
         </SignedIn>
+
         <Button
           onPress={() => void utils.post.all.invalidate()}
           title="Refresh posts"
@@ -132,12 +158,7 @@ const Index = () => {
           )}
         />
 
-        <SignedIn>
-          <CreatePost />
-        </SignedIn>
-        <SignedOut>
-          <SignInWithOAuth />
-        </SignedOut>
+        <CreatePost />
       </View>
     </SafeAreaView>
   );
@@ -149,9 +170,10 @@ const SignOut = () => {
     return null;
   }
   return (
-    <View>
+    <View className="mb-1">
       <Button
         title="Sign Out"
+        color="purple"
         onPress={() => {
           void signOut();
         }}

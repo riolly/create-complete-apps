@@ -51,20 +51,16 @@ const SignInWithOAuth = () => {
   }, [startDiscordAuthFlow]);
 
   return (
-    <View className="space-y-2">
+    <View className="mb-2 flex flex-row space-x-2">
       <Pressable
-        className="rounded-md bg-blue-500 px-4 py-3"
-        onPress={() => {
-          void onPressGoogle();
-        }}
+        className="flex-1 rounded-md bg-violet-700 px-4 py-3"
+        onPress={() => void onPressGoogle()}
       >
         <Text className="self-center">Sign in with Google</Text>
       </Pressable>
       <Pressable
-        className="rounded-md bg-blue-500 px-4 py-3"
-        onPress={() => {
-          void onPressDiscord();
-        }}
+        className="flex-1 rounded-md bg-purple-700 px-4 py-3"
+        onPress={() => void onPressDiscord()}
       >
         <Text className="self-center">Sign in with Discord</Text>
       </Pressable>
