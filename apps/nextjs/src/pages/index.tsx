@@ -4,7 +4,8 @@ import Head from "next/head";
 import Link from "next/link";
 import { useAuth, UserButton } from "@clerk/nextjs";
 
-import { api, type RouterOutputs } from "~/utils/api";
+import { api } from "~/utils/api";
+import type { RouterOutputs } from "~/utils/api";
 
 const PostCard: React.FC<{
   post: RouterOutputs["post"]["all"][number];
@@ -17,6 +18,7 @@ const PostCard: React.FC<{
         <p className="mt-2 text-sm">{post.content}</p>
       </div>
       <div>
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
         <span
           className="cursor-pointer text-sm font-bold uppercase text-pink-400"
           onClick={onPostDelete}
@@ -86,9 +88,9 @@ const Home: NextPage = () => {
 
   const deletePostMutation = api.post.delete.useMutation({
     onSettled: () => postQuery.refetch(),
-    onError: ({message}) => {
-      alert(message)
-    }
+    onError: ({ message }) => {
+      alert(message);
+    },
   });
 
   return (

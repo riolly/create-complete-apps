@@ -1,7 +1,6 @@
 /** @typedef  {import("@ianvs/prettier-plugin-sort-imports").PluginConfig} SortImportsConfig*/
 /** @typedef  {import("prettier").Config} PrettierConfig*/
 /** @typedef  {{ tailwindConfig: string }} TailwindConfig*/
-
 /** @type { PrettierConfig | SortImportsConfig | TailwindConfig } */
 const config = {
   arrowParens: "always",
@@ -32,7 +31,6 @@ const config = {
     "^[./]",
   ],
   importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
-  importOrderTypeScriptVersion: "5.0.4",
 };
 
-module.exports = config;
+export default config;

@@ -12,7 +12,8 @@ import { Stack, useRouter } from "expo-router";
 import { SignedIn, SignedOut, useAuth } from "@clerk/clerk-expo";
 import { FlashList } from "@shopify/flash-list";
 
-import { api, type RouterOutputs } from "~/utils/api";
+import { api } from "~/utils/api";
+import type { RouterOutputs } from "~/utils/api";
 import SignInWithOAuth from "~/components/SingInWithOAuth";
 
 const createAlert = ({ title, message }: { title: string; message: string }) =>
@@ -110,9 +111,9 @@ const Index = () => {
     onSettled: () => utils.post.all.invalidate(),
     onError: ({ message }, postId) =>
       createAlert({
-        title: `Error deleting: ${
-          postQuery.data?.find(({ id }) => id === postId)?.title
-        }`,
+        title: `Error deleting: ${postQuery.data?.find(
+          ({ id }) => id === postId,
+        )?.title}`,
         message,
       }),
   });

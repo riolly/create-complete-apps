@@ -13,7 +13,7 @@ import type {
 } from "@clerk/nextjs/api";
 import { getAuth } from "@clerk/nextjs/server";
 import { initTRPC, TRPCError } from "@trpc/server";
-import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
+import type { CreateNextContextOptions } from "@trpc/server/adapters/next";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
@@ -28,9 +28,9 @@ import { prisma } from "@acme/db";
  * processing a request
  *
  */
-type AuthContextProps = {
+interface AuthContextProps {
   auth: SignedInAuthObject | SignedOutAuthObject;
-};
+}
 
 /**
  * This helper generates the "internals" for a tRPC context. If you need to use
