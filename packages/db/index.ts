@@ -1,7 +1,7 @@
 import { Kysely } from "kysely";
 import { PlanetScaleDialect } from "kysely-planetscale";
 
-// import { Kysely, MysqlDialect } from 'kysely'
+// import { Kysely, MysqlDialect } from "kysely";
 // import { createPool } from "mysql2";
 
 import type { DB } from "./prisma/generated/types";
