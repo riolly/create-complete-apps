@@ -10,6 +10,7 @@ const db = new Kysely<DB>({
   dialect: new PlanetScaleDialect({
     url: process.env.DATABASE_URL,
   }),
+  // for local development: uncomment MysqlDialect and comment PlanetScaleDialect
   // dialect: new MysqlDialect({
   //   pool: async () =>
   //     createPool({
