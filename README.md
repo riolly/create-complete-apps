@@ -25,10 +25,12 @@ apps
       ├─ React 18
       └─ E2E Typesafe API Server & Client
 packages
- ├─ api
- |   └─ tRPC v10 router definition
- └─ db
-     └─ typesafe db-calls using Prisma
+  ├─ api
+  |   └─ tRPC v10 router definition
+  ├─ config
+  |   └─ Shared Tailwind & Eslint configs
+  └─ db
+      └─ Typesafe db calls using Prisma
 ```
 
 ## Quick Start
