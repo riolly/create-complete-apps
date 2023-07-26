@@ -27,7 +27,7 @@ importers:
     dependencies:
       '@clerk/clerk-expo':
         specifier: ^0.18.16
-        version: 0.18.16(@babel/core@7.22.9)(@types/react@18.2.14)(expo-auth-session@5.0.2)(expo-web-browser@12.3.2)(react-dom@18.2.0)(react-native@0.72.3)(react@18.2.0)
+        version: 0.18.16(@babel/core@7.22.9)(@types/react@18.2.16)(expo-auth-session@5.0.2)(expo-web-browser@12.3.2)(react-dom@18.2.0)(react-native@0.72.3)(react@18.2.0)
       '@expo/metro-config':
         specifier: ^0.10.7
         version: 0.10.7
@@ -126,8 +126,8 @@ importers:
         specifier: ^7.20.1
         version: 7.20.1
       '@types/react':
-        specifier: ^18.2.14
-        version: 18.2.14
+        specifier: ^18.2.16
+        version: 18.2.16
       '@types/react-native':
         specifier: ^0.72.2
         version: 0.72.2(react-native@0.72.3)
@@ -1836,7 +1836,7 @@ packages:
       tslib: 2.4.1
     dev: false
 
-  /@clerk/clerk-expo@0.18.16(@babel/core@7.22.9)(@types/react@18.2.14)(expo-auth-session@5.0.2)(expo-web-browser@12.3.2)(react-dom@18.2.0)(react-native@0.72.3)(react@18.2.0):
+  /@clerk/clerk-expo@0.18.16(@babel/core@7.22.9)(@types/react@18.2.16)(expo-auth-session@5.0.2)(expo-web-browser@12.3.2)(react-dom@18.2.0)(react-native@0.72.3)(react@18.2.0):
     resolution: {integrity: sha512-ngzMPe6sms5bBtIBW5UXcvjQaEf/i5ioNXJ04d03dAmJzEFFOayRddg+xyFc/Dhsfn8csEA4LRtxOOebOL/Xkw==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -1844,7 +1844,7 @@ packages:
       expo-web-browser: '>=12'
       react: '>=16'
     dependencies:
-      '@clerk/clerk-js': 4.54.2(@babel/core@7.22.9)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
+      '@clerk/clerk-js': 4.54.2(@babel/core@7.22.9)(@types/react@18.2.16)(react-dom@18.2.0)(react@18.2.0)
       '@clerk/clerk-react': 4.23.1(react@18.2.0)
       base-64: 1.0.0
       expo-auth-session: 5.0.2(expo@49.0.5)
@@ -1858,7 +1858,7 @@ packages:
       - react-native
     dev: false
 
-  /@clerk/clerk-js@4.54.2(@babel/core@7.22.9)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
+  /@clerk/clerk-js@4.54.2(@babel/core@7.22.9)(@types/react@18.2.16)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-wrrq9kG8rby8ezemLf7/L3zUnwrx7JDQCVw2uX2+uHnOUzerIviG7k4u2EN7WWXSMODPq+niUxFuodx1psgnFQ==}
     peerDependencies:
       react: '>=18'
@@ -1867,7 +1867,7 @@ packages:
       '@clerk/shared': 0.20.0(react@18.2.0)
       '@clerk/types': 3.48.1
       '@emotion/cache': 11.10.5
-      '@emotion/react': 11.10.5(@babel/core@7.22.9)(@types/react@18.2.14)(react@18.2.0)
+      '@emotion/react': 11.10.5(@babel/core@7.22.9)(@types/react@18.2.16)(react@18.2.0)
       '@floating-ui/react': 0.19.0(react-dom@18.2.0)(react@18.2.0)
       '@zxcvbn-ts/core': 2.2.1
       '@zxcvbn-ts/language-common': 3.0.2
@@ -2000,7 +2000,7 @@ packages:
     resolution: {integrity: sha512-W2P2c/VRW1/1tLox0mVUalvnWXxavmv/Oum2aPsRcoDJuob75FC3Y8FbpfLwUegRcxINtGUMPq0tFCvYNTBXNA==}
     dev: false
 
-  /@emotion/react@11.10.5(@babel/core@7.22.9)(@types/react@18.2.14)(react@18.2.0):
+  /@emotion/react@11.10.5(@babel/core@7.22.9)(@types/react@18.2.16)(react@18.2.0):
     resolution: {integrity: sha512-TZs6235tCJ/7iF6/rvTaOH4oxQg2gMAcdHemjwLKIjKz4rRuYe1HJ2TQJKnAcRAfOUDdU8XoDadCe1rl72iv8A==}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -2020,7 +2020,7 @@ packages:
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@18.2.0)
       '@emotion/utils': 1.2.1
       '@emotion/weak-memoize': 0.3.1
-      '@types/react': 18.2.14
+      '@types/react': 18.2.16
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
     dev: false
@@ -3507,17 +3507,10 @@ packages:
     resolution: {integrity: sha512-/eEjr04Zqo7mTMszuSdrLx90+j5nWhDMMOgtnKZfAYyV3RwmlpSb7F17ilmMMxZWJY81n/JZ4e6wdhMJFpjrCg==}
     dependencies:
       '@react-native/virtualized-lists': 0.72.6(react-native@0.72.3)
-      '@types/react': 18.2.14
+      '@types/react': 18.2.16
     transitivePeerDependencies:
       - react-native
     dev: true
-
-  /@types/react@18.2.14:
-    resolution: {integrity: sha512-A0zjq+QN/O0Kpe30hA1GidzyFjatVvrpIvWLxD+xv67Vt91TWWgco9IvrJBkeyHm1trGaFS/FSGqPlhyeZRm0g==}
-    dependencies:
-      '@types/prop-types': 15.7.5
-      '@types/scheduler': 0.16.3
-      csstype: 3.1.2
 
   /@types/react@18.2.16:
     resolution: {integrity: sha512-LLFWr12ZhBJ4YVw7neWLe6Pk7Ey5R9OCydfuMsz1L8bZxzaawJj2p06Q8/EFEHDeTBQNFLF62X+CG7B2zIyu0Q==}
@@ -3525,7 +3518,6 @@ packages:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
       csstype: 3.1.2
-    dev: true
 
   /@types/responselike@1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
