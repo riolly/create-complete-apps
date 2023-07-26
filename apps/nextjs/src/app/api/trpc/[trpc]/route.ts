@@ -4,6 +4,14 @@ import { appRouter, createTRPCContext } from "@acme/api";
 
 export const runtime = "edge";
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+// patch: TRPCClientError: Do not know how to serialize a BigInt
+BigInt.prototype.toJSON = function () {
+  const int = Number.parseInt(this.toString());
+  return int ?? this.toString();
+};
+
 /**
  * Configure basic CORS headers
  * You should extend this to match your needs
