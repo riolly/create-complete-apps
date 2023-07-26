@@ -30,15 +30,15 @@ const vars = {
   },
 };
 
-function env(variable: keyof typeof vars) {
-  const variant = process.env.APP_VARIANT as variants;
+function getEnv(variable: keyof typeof vars) {
+  const variant = (process.env.APP_VARIANT as variants) ?? "development";
   return vars[variable][variant];
 }
 
 const defineConfig = (): ExpoConfig => ({
   owner: project.owner,
   slug: project.slug,
-  name: env("name"),
+  name: getEnv("name"),
   scheme: "cfma",
   version: "0.1.0",
   orientation: "portrait",
@@ -55,19 +55,22 @@ const defineConfig = (): ExpoConfig => ({
   assetBundlePatterns: ["**/*"],
   ios: {
     supportsTablet: true,
-    bundleIdentifier: env("identifier"),
+    bundleIdentifier: getEnv("identifier"),
   },
   android: {
     adaptiveIcon: {
       foregroundImage: "./assets/icon.png",
       backgroundColor: "#1F104A",
     },
-    package: env("identifier"),
+    package: getEnv("identifier"),
   },
   extra: {
     eas: { projectId: project.id },
-    apiUrl: env("apiUrl"),
-    clerkPublishableKey: env("clerkPublishableKey"),
+    apiUrl: getEnv("apiUrl"),
+    clerkPublishableKey: getEnv("clerkPublishableKey"),
+  },
+  experiments: {
+    tsconfigPaths: true,
   },
   plugins: ["./expo-plugins/with-modify-gradle.js"],
 });

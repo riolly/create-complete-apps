@@ -20,15 +20,23 @@ It uses [Turborepo](https://turborepo.org/) and contains:
   └─ Recommended extensions and settings for VSCode users
 apps
   ├─ expo
+  |   ├─ Expo SDK 49
+  |   ├─ React Native using React 18
+  |   ├─ Navigation using Expo Router
+  |   ├─ Tailwind using Nativewind
+  |   └─ Typesafe API calls using tRPC
   └─ next.js
       ├─ Next.js 13
       ├─ React 18
+      ├─ Tailwind CSS
       └─ E2E Typesafe API Server & Client
 packages
- ├─ api
- |   └─ tRPC v10 router definition
- └─ db
-     └─ typesafe db-calls using Prisma
+  ├─ api
+  |   └─ tRPC v10 router definition
+  ├─ config
+  |   └─ Shared Tailwind & Eslint configs
+  └─ db
+      └─ Typesafe db calls using Prisma
 ```
 
 ## Quick Start
