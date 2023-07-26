@@ -1,16 +1,21 @@
-import { PrismaClient } from "@prisma/client";
+import { Kysely } from "kysely";
+import { PlanetScaleDialect } from "kysely-planetscale";
 
-export * from "@prisma/client";
+// import { Kysely, MysqlDialect } from 'kysely'
+// import { createPool } from "mysql2";
 
-const globalForPrisma = globalThis as { prisma?: PrismaClient };
+import type { DB } from "./prisma/generated/types";
 
-export const prisma =
-  globalForPrisma.prisma ||
-  new PrismaClient({
-    log:
-      process.env.NODE_ENV === "development"
-        ? ["query", "error", "warn"]
-        : ["error"],
-  });
+const db = new Kysely<DB>({
+  dialect: new PlanetScaleDialect({
+    url: process.env.DATABASE_URL,
+  }),
+  // dialect: new MysqlDialect({
+  //   pool: async () =>
+  //     createPool({
+  //       uri: process.env.DATABASE_URL,
+  //     }),
+  // }),
+});
 
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+export default db;

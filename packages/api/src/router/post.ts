@@ -1,15 +1,21 @@
 import { z } from "zod";
 
+import { generateId } from "@acme/db/utils";
+
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 
 export const postRouter = createTRPCRouter({
-  all: publicProcedure.query(({ ctx }) => {
-    return ctx.prisma.post.findMany({ orderBy: { id: "desc" } });
+  all: publicProcedure.query(async ({ ctx }) => {
+    const posts = await ctx.db.selectFrom("Post").selectAll().execute();
+    return posts;
   }),
   byId: publicProcedure
     .input(z.object({ id: z.string() }))
-    .query(({ ctx, input }) => {
-      return ctx.prisma.post.findFirst({ where: { id: input.id } });
+    .query(async ({ ctx, input }) => {
+      return await ctx.db
+        .selectFrom("Post")
+        .where("Post.id", "=", input.id)
+        .executeTakeFirstOrThrow();
     }),
   create: publicProcedure
     .input(
@@ -18,10 +24,22 @@ export const postRouter = createTRPCRouter({
         content: z.string().min(1),
       }),
     )
-    .mutation(({ ctx, input }) => {
-      return ctx.prisma.post.create({ data: input });
+    .mutation(async ({ ctx, input }) => {
+      return await ctx.db
+        .insertInto("Post")
+        .values({
+          id: generateId(),
+          title: input.title,
+          content: input.content,
+        })
+        .executeTakeFirstOrThrow();
     }),
-  delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
-    return ctx.prisma.post.delete({ where: { id: input } });
-  }),
+  delete: protectedProcedure
+    .input(z.string())
+    .mutation(async ({ ctx, input }) => {
+      return await ctx.db
+        .deleteFrom("Post")
+        .where("id", "=", input)
+        .executeTakeFirstOrThrow();
+    }),
 });

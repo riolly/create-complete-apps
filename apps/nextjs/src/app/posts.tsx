@@ -17,6 +17,9 @@ export function CreatePostForm() {
       setContent("");
       await context.post.all.invalidate();
     },
+    onError: (error) => {
+      console.log(error);
+    },
   });
 
   return (
@@ -28,9 +31,6 @@ export function CreatePostForm() {
           title,
           content,
         });
-        setTitle("");
-        setContent("");
-        await context.post.all.invalidate();
       }}
     >
       <input
@@ -86,6 +86,7 @@ function PostCard(props: { post: RouterOutputs["post"]["all"][number] }) {
   const context = api.useContext();
   const deletePost = api.post.delete.useMutation({
     onError: (error) => {
+      console.log(error.data);
       alert(`${error.message}. Please login to delete.`);
     },
   });
