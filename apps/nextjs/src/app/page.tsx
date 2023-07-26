@@ -22,7 +22,7 @@ export default function HomePage() {
   );
 }
 
-export async function AuthShowcase() {
+async function AuthShowcase() {
   const user = await currentUser();
 
   if (!user) {
