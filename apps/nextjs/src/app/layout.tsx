@@ -27,6 +27,14 @@ export const metadata: Metadata = {
   },
 };
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+// patch: TRPCClientError: Do not know how to serialize a BigInt
+BigInt.prototype.toJSON = function () {
+  const int = Number.parseInt(this.toString());
+  return int ?? this.toString();
+};
+
 export default function Layout(props: { children: React.ReactNode }) {
   return (
     <ClerkProvider>
