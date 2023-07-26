@@ -7,13 +7,12 @@
  * The pieces you will need to use are documented accordingly near the end
  */
 
+import { auth as authClerk } from "@clerk/nextjs";
 import type {
   SignedInAuthObject,
   SignedOutAuthObject,
 } from "@clerk/nextjs/api";
-import { getAuth } from "@clerk/nextjs/server";
 import { initTRPC, TRPCError } from "@trpc/server";
-import type { CreateNextContextOptions } from "@trpc/server/adapters/next";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
@@ -53,8 +52,9 @@ const createInnerTRPCContext = ({ auth }: AuthContextProps) => {
  * process every request that goes through your tRPC endpoint
  * @link https://trpc.io/docs/context
  */
-export const createTRPCContext = (opts: CreateNextContextOptions) => {
-  return createInnerTRPCContext({ auth: getAuth(opts.req) });
+export const createTRPCContext = () => {
+  const auth = authClerk();
+  return createInnerTRPCContext({ auth });
 };
 
 /**
