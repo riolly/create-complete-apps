@@ -1,10 +1,10 @@
 import { Button, SafeAreaView, Text, View } from "react-native";
-import { SplashScreen, Stack, useRouter, useSearchParams } from "expo-router";
+import { SplashScreen, Stack, useRouter, useLocalSearchParams } from "expo-router";
 
 import { api } from "~/utils/api";
 
 const Post: React.FC = () => {
-  const { id } = useSearchParams();
+  const { id } = useLocalSearchParams();
   const { push } = useRouter();
   if (!id || typeof id !== "string") throw new Error("unreachable");
   const { data } = api.post.byId.useQuery({ id });
