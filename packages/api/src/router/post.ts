@@ -14,6 +14,7 @@ export const postRouter = createTRPCRouter({
     .query(async ({ ctx, input }) => {
       return await ctx.db
         .selectFrom("Post")
+        .selectAll()
         .where("Post.id", "=", input.id)
         .executeTakeFirstOrThrow();
     }),
