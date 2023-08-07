@@ -13,16 +13,16 @@
   },
   "dependencies": {
     "@planetscale/database": "^1.10.0",
-    "@prisma/client": "^5.0.0",
+    "@prisma/client": "^5.1.1",
     "kysely": "^0.26.1",
-    "kysely-planetscale": "^1.3.0",
-    "mysql2": "^3.5.2",
+    "kysely-planetscale": "^1.4.0",
+    "mysql2": "^3.6.0",
     "nanoid": "^4.0.2",
     "prisma-kysely": "^1.5.0"
   },
   "devDependencies": {
     "dotenv-cli": "^7.2.1",
-    "prisma": "^5.0.0",
+    "prisma": "^5.1.1",
     "typescript": "^5.1.6"
   }
 }
