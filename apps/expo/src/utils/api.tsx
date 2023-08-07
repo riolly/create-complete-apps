@@ -46,6 +46,7 @@ export const TRPCProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const { getToken } = useAuth();
+
   const [queryClient] = React.useState(() => new QueryClient());
   const [trpcClient] = React.useState(() =>
     api.createClient({
@@ -53,10 +54,12 @@ export const TRPCProvider: React.FC<{ children: React.ReactNode }> = ({
       links: [
         httpBatchLink({
           async headers() {
+            const headers = new Map<string, string>();
+            headers.set("x-trpc-source", "expo-react");
             const authToken = await getToken();
-            return {
-              Authorization: authToken ?? undefined,
-            };
+            headers.set("Authorization", authToken ?? "");
+
+            return Object.fromEntries(headers);
           },
           url: `${getBaseUrl()}/api/trpc`,
         }),

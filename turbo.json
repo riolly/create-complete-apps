@@ -36,6 +36,7 @@
     "EXPO_ROUTER_APP_ROOT",
     "NODE_ENV",
     "SKIP_ENV_VALIDATION",
+    "PORT",
     "VERCEL",
     "VERCEL_URL",
     "DATABASE_URL",
