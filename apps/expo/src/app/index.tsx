@@ -8,6 +8,7 @@ import { FlashList } from "@shopify/flash-list";
 import { api } from "~/utils/api";
 import type { RouterOutputs } from "~/utils/api";
 import createAlert from "~/components/Alert";
+import ButtonUI from "~/components/Button";
 import SignInWithOAuth from "~/components/SingInWithOAuth";
 
 const PostCard: React.FC<{
@@ -73,17 +74,15 @@ const CreatePost: React.FC = () => {
           {error.data.zodError.fieldErrors.content}
         </Text>
       )}
-      <TouchableOpacity
-        className="rounded bg-pink-400 p-2"
+      <ButtonUI
+        text="Publish post"
         onPress={() => {
           mutate({
             title,
             content,
           });
         }}
-      >
-        <Text className="font-semibold text-white">Publish post</Text>
-      </TouchableOpacity>
+      />
     </View>
   );
 };
@@ -121,10 +120,9 @@ const Index = () => {
           <SignOut />
         </SignedIn>
 
-        <Button
-          onPress={() => void utils.post.all.invalidate()}
-          title="Refresh posts"
-          color={"#f472b6"}
+        <ButtonUI
+          text="Refresh posts"
+          onPress={() => utils.post.all.invalidate()}
         />
 
         <View className="py-2">
