@@ -2,23 +2,37 @@ import { Button, SafeAreaView, Text, View } from "react-native";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 
 import { api } from "~/utils/api";
+import createAlert from "~/components/Alert";
 
 const Post: React.FC = () => {
   const { id } = useLocalSearchParams();
-  const { push } = useRouter();
+  const { push, replace } = useRouter();
   if (!id || typeof id !== "string") throw new Error("unreachable");
-  const { data } = api.post.byId.useQuery({ id });
+  const { data, isInitialLoading } = api.post.byId.useQuery({ id });
 
-  if (!data) return <SplashScreen />;
+  if (!data && !isInitialLoading) {
+    createAlert({
+      title: "Error",
+      message: "Post not found.",
+      text: "Back to home",
+      onPress: () => replace("/"),
+    });
+  }
 
   return (
     <SafeAreaView className="bg-[#1F104A]">
-      <Stack.Screen options={{ title: data.title }} />
-      <View className="h-full w-full p-4">
-        <Text className="py-2 text-3xl font-bold text-white">{data.title}</Text>
-        <Text className="py-4 text-white">{data.content}</Text>
-        <Button onPress={() => push("/")} title="Back" />
-      </View>
+      {data && (
+        <>
+          <Stack.Screen options={{ title: data.title }} />
+          <View className="h-full w-full p-4">
+            <Text className="py-2 text-3xl font-bold text-white">
+              {data.title}
+            </Text>
+            <Text className="py-4 text-white">{data.content}</Text>
+            <Button onPress={() => push("/")} title="Back" />
+          </View>
+        </>
+      )}
     </SafeAreaView>
   );
 };
