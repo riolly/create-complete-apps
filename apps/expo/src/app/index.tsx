@@ -1,28 +1,17 @@
 import React from "react";
-import {
-  Alert,
-  Button,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Stack, useRouter } from "expo-router";
+import { SplashScreen, Stack, useRouter } from "expo-router";
 import { SignedIn, SignedOut, useAuth } from "@clerk/clerk-expo";
 import { FlashList } from "@shopify/flash-list";
 
 import { api } from "~/utils/api";
 import type { RouterOutputs } from "~/utils/api";
+import createAlert from "~/components/Alert";
+import ButtonUI from "~/components/Button";
 import SignInWithOAuth from "~/components/SingInWithOAuth";
 
-const createAlert = ({ title, message }: { title: string; message: string }) =>
-  Alert.alert(title, message, [
-    {
-      text: "Okay",
-      onPress: () => console.log("Cancel error"),
-    },
-  ]);
+SplashScreen.preventAutoHideAsync();
 
 const PostCard: React.FC<{
   post: RouterOutputs["post"]["all"][number];
@@ -87,17 +76,15 @@ const CreatePost: React.FC = () => {
           {error.data.zodError.fieldErrors.content}
         </Text>
       )}
-      <TouchableOpacity
-        className="rounded bg-pink-400 p-2"
+      <ButtonUI
+        text="Publish post"
         onPress={() => {
           mutate({
             title,
             content,
           });
         }}
-      >
-        <Text className="font-semibold text-white">Publish post</Text>
-      </TouchableOpacity>
+      />
     </View>
   );
 };
@@ -118,6 +105,10 @@ const Index = () => {
       }),
   });
 
+  if (postQuery.isSuccess) {
+    SplashScreen.hideAsync();
+  }
+
   return (
     <SafeAreaView className="bg-[#1F104A]">
       {/* Changes page title visible on the header */}
@@ -135,10 +126,9 @@ const Index = () => {
           <SignOut />
         </SignedIn>
 
-        <Button
-          onPress={() => void utils.post.all.invalidate()}
-          title="Refresh posts"
-          color={"#f472b6"}
+        <ButtonUI
+          text="Refresh posts"
+          onPress={() => utils.post.all.invalidate()}
         />
 
         <View className="py-2">
