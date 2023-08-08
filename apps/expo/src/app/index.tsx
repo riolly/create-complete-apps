@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Stack, useRouter } from "expo-router";
+import { SplashScreen, Stack, useRouter } from "expo-router";
 import { SignedIn, SignedOut, useAuth } from "@clerk/clerk-expo";
 import { FlashList } from "@shopify/flash-list";
 
@@ -10,6 +10,8 @@ import type { RouterOutputs } from "~/utils/api";
 import createAlert from "~/components/Alert";
 import ButtonUI from "~/components/Button";
 import SignInWithOAuth from "~/components/SingInWithOAuth";
+
+SplashScreen.preventAutoHideAsync();
 
 const PostCard: React.FC<{
   post: RouterOutputs["post"]["all"][number];
@@ -102,6 +104,10 @@ const Index = () => {
         message,
       }),
   });
+
+  if (postQuery.isSuccess) {
+    SplashScreen.hideAsync();
+  }
 
   return (
     <SafeAreaView className="bg-[#1F104A]">
