@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Alert,
-  Button,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Stack, useRouter } from "expo-router";
 import { SignedIn, SignedOut, useAuth } from "@clerk/clerk-expo";
@@ -14,15 +7,8 @@ import { FlashList } from "@shopify/flash-list";
 
 import { api } from "~/utils/api";
 import type { RouterOutputs } from "~/utils/api";
+import createAlert from "~/components/Alert";
 import SignInWithOAuth from "~/components/SingInWithOAuth";
-
-const createAlert = ({ title, message }: { title: string; message: string }) =>
-  Alert.alert(title, message, [
-    {
-      text: "Okay",
-      onPress: () => console.log("Cancel error"),
-    },
-  ]);
 
 const PostCard: React.FC<{
   post: RouterOutputs["post"]["all"][number];
