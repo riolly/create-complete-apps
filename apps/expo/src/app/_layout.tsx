@@ -8,6 +8,8 @@ import { ClerkProvider } from "@clerk/clerk-expo";
 import { TRPCProvider } from "~/utils/api";
 import { tokenCache } from "~/utils/cache";
 
+import "react-native-gesture-handler";
+
 // This is the main layout of the app
 // It wraps your pages with the providers they need
 const RootLayout = () => {
