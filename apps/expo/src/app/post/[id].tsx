@@ -1,8 +1,9 @@
-import { Button, SafeAreaView, Text, View } from "react-native";
+import { SafeAreaView, Text, View } from "react-native";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 
 import { api } from "~/utils/api";
 import createAlert from "~/components/Alert";
+import ButtonUI from "~/components/Button";
 
 const Post: React.FC = () => {
   const { id } = useLocalSearchParams();
@@ -29,7 +30,7 @@ const Post: React.FC = () => {
               {data.title}
             </Text>
             <Text className="py-4 text-white">{data.content}</Text>
-            <Button onPress={() => push("/")} title="Back" />
+            <ButtonUI onPress={() => push("/")} text="Back" />
           </View>
         </>
       )}
