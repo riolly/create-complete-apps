@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { SplashScreen, Stack, useRouter } from "expo-router";
+import { Link, SplashScreen, Stack } from "expo-router";
 import { SignedIn, SignedOut, useAuth } from "@clerk/clerk-expo";
 import { FlashList } from "@shopify/flash-list";
 
@@ -17,17 +17,23 @@ const PostCard: React.FC<{
   post: RouterOutputs["post"]["all"][number];
   onDelete: () => void;
 }> = ({ post, onDelete }) => {
-  const router = useRouter();
-
   return (
     <View className="flex flex-row rounded-lg bg-white/10 p-4">
       <View className="flex-grow">
-        <TouchableOpacity onPress={() => router.push(`/post/${post.id}`)}>
-          <Text className="text-xl font-semibold text-pink-400">
-            {post.title}
-          </Text>
-          <Text className="mt-2 text-white">{post.content}</Text>
-        </TouchableOpacity>
+        <Link
+          asChild
+          href={{
+            pathname: "/post/[id]",
+            params: { id: post.id },
+          }}
+        >
+          <TouchableOpacity>
+            <Text className="text-xl font-semibold text-pink-400">
+              {post.title}
+            </Text>
+            <Text className="mt-2 text-white">{post.content}</Text>
+          </TouchableOpacity>
+        </Link>
       </View>
       <TouchableOpacity onPress={onDelete}>
         <Text className="font-bold uppercase text-pink-400">Delete</Text>
