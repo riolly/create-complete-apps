@@ -16,7 +16,7 @@ import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
-import { prisma } from "@acme/db";
+import db from "@acme/db";
 
 /**
  * 1. CONTEXT
@@ -43,7 +43,7 @@ interface AuthContextProps {
 const createInnerTRPCContext = ({ auth }: AuthContextProps) => {
   return {
     auth,
-    prisma,
+    db,
   };
 };
 
