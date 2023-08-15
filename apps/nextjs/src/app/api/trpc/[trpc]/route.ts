@@ -37,6 +37,9 @@ const handler = async (req: Request) => {
     router: appRouter,
     req,
     createContext: () => createTRPCContext({ req }),
+    onError({ error, path }) {
+      console.error(`>>> tRPC Error on '${path}'`, error);
+    },
   });
 
   setCorsHeaders(response);
