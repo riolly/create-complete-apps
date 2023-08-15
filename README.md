@@ -1,14 +1,23 @@
 [![CI](https://github.com/riolly/create-fullstack-mobile-app/actions/workflows/ci.yml/badge.svg)](https://github.com/riolly/create-fullstack-mobile-app/actions/workflows/ci.yml)
 
-# Create T3 Turbo with Clerk Authentication
+# Create Complete Apps
 
-## Clerk Dashboard Setup
+- [x] Dynamic Web App using NextJs
+- [ ] Content-based Website using Astro
+- [x] Mobile App using Expo
+- [x] API using tRPC
+- [x] Database using Planetscale
 
-For this template to work you need to enable Discord as an OAuth provider. You can find the social options under `User & Authentication / Social Providers` in the [Clerk Dashboard](https://dashboard.clerk.dev)
+**Pleasant DX, Fast, and Scaleable by default**
 
-> If you change any setting here outside of adding Discord, you may need to update your Expo code to handle any requirements you change.
+> **Why use this?** Because each tool has its own purpose.<br />
+*For dynamic web app, you can't beat Nextjs.<br />
+For content-based website, you can't beat Astro.<br />
+For mobile app, you can't beat Expo.<br />
+For API, you can't beat tRPC.<br />
+for database, you can't beat Planetscale.<br />*
 
-It uses [Turborepo](https://turborepo.org/) and contains:
+Organized with [Turborepo](https://turborepo.org/) with following structure:
 
 ## Code Layout
 
@@ -25,18 +34,20 @@ apps
   |   ├─ Navigation using Expo Router
   |   ├─ Tailwind using Nativewind
   |   └─ Typesafe API calls using tRPC
+  |   └─ Auth using Clerk 
   └─ next.js
-      ├─ Next.js 13
+      ├─ Next.js 13 app dir
       ├─ React 18
       ├─ Tailwind CSS
       └─ E2E Typesafe API Server & Client
+      └─ Auth using Clerk
 packages
   ├─ api
   |   └─ tRPC v10 router definition
   ├─ config
   |   └─ Shared Tailwind & Eslint configs
   └─ db
-      └─ Typesafe db calls using Prisma
+      └─ Typesafe db calls using Prisma schema, Kysely query builder, Planetscale database  
 ```
 
 ## Quick Start
@@ -48,7 +59,6 @@ To get it running, follow the steps below:
 ```diff
 # Install dependencies
 pnpm i
-
 
 # Configure environment variables.
 # There is an `.env.example` in the root directory you can use for reference
