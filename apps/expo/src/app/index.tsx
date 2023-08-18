@@ -5,11 +5,11 @@ import { Link, SplashScreen, Stack } from "expo-router";
 import { SignedIn, SignedOut, useAuth } from "@clerk/clerk-expo";
 import { FlashList } from "@shopify/flash-list";
 
-import { api } from "~/utils/api";
-import type { RouterOutputs } from "~/utils/api";
 import createAlert from "~/components/Alert";
 import ButtonUI from "~/components/Button";
 import SignInWithOAuth from "~/components/SingInWithOAuth";
+import { api } from "~/utils/api";
+import type { RouterOutputs } from "~/utils/api";
 
 SplashScreen.preventAutoHideAsync();
 
