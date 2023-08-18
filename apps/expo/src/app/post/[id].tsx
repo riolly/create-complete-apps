@@ -1,9 +1,9 @@
 import { SafeAreaView, Text, View } from "react-native";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 
-import { api } from "~/utils/api";
 import createAlert from "~/components/Alert";
 import ButtonUI from "~/components/Button";
+import { api } from "~/utils/api";
 
 const Post: React.FC = () => {
   const { id } = useLocalSearchParams();
