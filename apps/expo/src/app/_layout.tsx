@@ -1,5 +1,4 @@
 import React from "react";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 import Constants from "expo-constants";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
@@ -21,20 +20,18 @@ const RootLayout = () => {
       }
     >
       <TRPCProvider>
-        <SafeAreaProvider>
-          {/*
+        {/*
           The Stack component displays the current page.
           It also allows you to configure your screens 
         */}
-          <Stack
-            screenOptions={{
-              headerStyle: {
-                backgroundColor: "#f472b6",
-              },
-            }}
-          />
-          <StatusBar />
-        </SafeAreaProvider>
+        <Stack
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: "#f472b6",
+            },
+          }}
+        />
+        <StatusBar />
       </TRPCProvider>
     </ClerkProvider>
   );
