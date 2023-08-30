@@ -4,7 +4,7 @@
   "engines": {
     "node": ">=v18.17.1"
   },
-  "packageManager": "pnpm@8.6.12",
+  "packageManager": "pnpm@8.7.0",
   "scripts": {
     "build": "turbo build",
     "clean": "git clean -xdf node_modules",
@@ -19,15 +19,16 @@
     "lint": "turbo lint --continue -- --cache --cache-location 'node_modules/.cache/.eslintcache' && manypkg check",
     "lint:fix": "turbo lint --continue -- --fix --cache --cache-location 'node_modules/.cache/.eslintcache' && manypkg fix",
     "typecheck": "turbo typecheck",
-    "pre-push": "turbo build lint format typecheck"
+    "repocheck": "manypkg check",
+    "pre-push": "turbo build lint format typecheck repocheck"
   },
   "dependencies": {
     "@acme/prettier-config": "^0.1.0",
     "@manypkg/cli": "^0.21.0",
-    "@turbo/gen": "^1.10.12",
-    "prettier": "^3.0.2",
-    "turbo": "^1.10.12",
-    "typescript": "^5.1.6"
+    "@turbo/gen": "^1.10.13",
+    "prettier": "^3.0.3",
+    "turbo": "^1.10.13",
+    "typescript": "^5.2.2"
   },
   "prettier": "@acme/prettier-config"
 }
