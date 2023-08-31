@@ -10,7 +10,10 @@ const db = new Kysely<DB>({
   dialect: new PlanetScaleDialect({
     url: process.env.DATABASE_URL,
   }),
-  // for local development: uncomment MysqlDialect and comment PlanetScaleDialect
+
+  // // for local development: uncomment MysqlDialect and comment PlanetScaleDialect
+  // // local development doesn't support edge runtime
+  // // replace all "edge" on nextjs dir to "node"
   // dialect: new MysqlDialect({
   //   pool: async () =>
   //     createPool({
