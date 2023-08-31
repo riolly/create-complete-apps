@@ -11,7 +11,6 @@
     "clean:workspaces": "turbo clean",
     "db:generate": "turbo db:generate",
     "db:push": "turbo db:push db:generate",
-    "db:studio": "pnpm -F db dev",
     "dev": "turbo dev --parallel",
     "dev:web": "turbo dev --parallel --filter !@acme/expo --filter !@acme/db",
     "format": "turbo format --continue -- --cache --cache-location='node_modules/.cache/.prettiercache'",
