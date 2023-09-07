@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@planetscale/database": "^1.11.0",
-    "@prisma/client": "^5.1.1",
+    "@prisma/client": "^5.2.0",
     "kysely": "^0.26.3",
     "kysely-planetscale": "^1.4.0",
     "mysql2": "^3.6.0",
