@@ -10,12 +10,10 @@
 
 **Pleasant DX, Fast, and Scaleable by default**
 
-> **Why use this?** Because each tool has its own purpose.<br />
-*For dynamic web app, you can't beat Nextjs.<br />
-For content-based website, you can't beat Astro.<br />
-For mobile app, you can't beat Expo.<br />
-For API, you can't beat tRPC.<br />
-for database, you can't beat Planetscale.<br />*
+> **Why use this?** Because each tool has its own purpose. For example:<br />
+> _For a dashboard or e-commerce app, Nextjs is the best fit.<br />
+> For a marketing or blog site, Astro is the best fit.<br />
+> For mobile app, Expo is the best fit.<br />_
 
 Organized with [Turborepo](https://turborepo.org/) with following structure:
 
@@ -34,7 +32,7 @@ apps
   |   ├─ Navigation using Expo Router
   |   ├─ Tailwind using Nativewind
   |   └─ Typesafe API calls using tRPC
-  |   └─ Auth using Clerk 
+  |   └─ Auth using Clerk
   └─ next.js
       ├─ Next.js 13 app dir
       ├─ React 18
@@ -47,7 +45,7 @@ packages
   ├─ config
   |   └─ Shared Tailwind & Eslint configs
   └─ db
-      └─ Typesafe db calls using Prisma schema, Kysely query builder, Planetscale database  
+      └─ Typesafe db calls using Prisma schema, Kysely query builder, Planetscale database
 ```
 
 ## Quick Start
