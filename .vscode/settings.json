@@ -15,5 +15,80 @@
   "typescript.preferences.autoImportFileExcludePatterns": [
     "next/router.d.ts",
     "next/dist/client/router.d.ts"
-  ]
+  ],
+  "hidefiles.configurationType": "local",
+  "hidefiles.globalConfig": {
+    "profiles": [
+      {
+        "name": "Hide All",
+        "detail": "Config, modules, build output, etc",
+        "description": "Hide all 'mostly' unnecessary files & folders in daily development workflow.",
+        "hidden": [
+          ".vscode/",
+          "vercel.json",
+          "turbo.json",
+          "pnpm-workspace.yaml",
+          "pnpm-lock.yaml",
+          "LICENSE",
+          ".nvmrc",
+          ".npmrc",
+          ".gitignore",
+          ".env.example",
+          "turbo/",
+          "node_modules/",
+          ".husky/",
+          ".github/",
+          "apps/expo/.expo/",
+          "apps/expo/.turbo/",
+          "apps/expo/node_modules/",
+          "apps/expo/.gitignore",
+          "apps/expo/.prettierignore",
+          "apps/expo/babel.config.js",
+          "apps/expo/eas.json",
+          "apps/expo/expo-env.d.ts",
+          "apps/expo/index.tsx",
+          "apps/expo/metro.config.js",
+          "apps/expo/tailwind.config.ts",
+          "apps/expo/tsconfig.json",
+          "apps/expo/expo-plugins/",
+          "apps/expo/.expo-shared/",
+          "apps/expo/.expo-shared/",
+          "apps/nextjs/.next/",
+          "apps/nextjs/.turbo/",
+          "apps/nextjs/node_modules/",
+          "apps/nextjs/.prettierignore",
+          "apps/nextjs/components.json",
+          "apps/nextjs/next-env.d.ts",
+          "apps/nextjs/postcss.config.cjs",
+          "apps/nextjs/tsconfig.json",
+          "apps/nextjs/README.md",
+          "apps/nextjs/.prettierignore",
+          "packages/db/tsconfig.json",
+          "packages/db/node_modules/",
+          "packages/db/.turbo/",
+          "packages/api/.turbo/",
+          "packages/api/node_modules/",
+          "packages/api/tsconfig.json",
+          "tooling/tailwind/tsconfig.json",
+          "tooling/tailwind/postcss.js",
+          "tooling/tailwind/node_modules/",
+          "tooling/tailwind/.turbo/",
+          "tooling/prettier/node_modules/",
+          "tooling/prettier/.turbo/",
+          "tooling/prettier/tsconfig.json",
+          "tooling/eslint/tsconfig.json",
+          "tooling/eslint/node_modules/",
+          "tooling/eslint/.turbo/"
+        ]
+      }
+    ]
+  },
+  "hidefiles.selectedProfile": "Show All Files",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true
+  }
 }
