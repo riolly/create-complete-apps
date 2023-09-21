@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "Running pre-push checks..."
+pnpm pre-push 
