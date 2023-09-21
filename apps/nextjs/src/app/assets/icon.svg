@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svgjs="http://svgjs.com/svgjs" width="361" height="361"><svg width="361" height="361" viewBox="0 0 361 361"
+        fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M102.108 322.592L340.685 258.668L352.386 215.02L113.805 278.945L102.108 322.592Z"
+            fill="url(#paint0_linear_6_11)"></path>
+        <path d="M96.3123 41.9496L32.3856 280.515L64.3374 312.472L128.265 73.9024L96.3123 41.9496Z"
+            fill="url(#paint1_linear_6_11)"></path>
+        <path d="M342.286 177.234L167.636 2.59154L123.983 14.2831L298.637 188.928L342.286 177.234Z"
+            fill="url(#paint2_linear_6_11)"></path>
+        <defs>
+            <linearGradient id="SvgjsLinearGradient1002" x1="90.8793" y1="-68.0877" x2="354.698" y2="-39.6531"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#1E3A8A"></stop>
+                <stop offset="0.197917" stop-color="#1D4ED8"></stop>
+                <stop offset="1" stop-color="#DBEAFE" stop-opacity="0"></stop>
+            </linearGradient>
+            <linearGradient id="SvgjsLinearGradient1001" x1="76.8591" y1="300.983" x2="175.386" y2="-2.64757"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#D1FAE5" stop-opacity="0"></stop>
+                <stop offset="0.802083" stop-color="#047857"></stop>
+                <stop offset="1" stop-color="#064E3B"></stop>
+            </linearGradient>
+            <linearGradient id="SvgjsLinearGradient1000" x1="149.447" y1="7.76707" x2="197.682" y2="202.9"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#CFFAFE" stop-opacity="0"></stop>
+                <stop offset="0.802083" stop-color="#0E7490"></stop>
+                <stop offset="1" stop-color="#164E63"></stop>
+            </linearGradient>
+        </defs>
+    </svg>
+    <style>
+        @media (prefers-color-scheme: light) {
+            :root {
+                filter: none;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                filter: contrast(0.9) brightness(1.5);
+            }
+        }
+    </style>
+</svg>
