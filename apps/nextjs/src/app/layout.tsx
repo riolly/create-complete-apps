@@ -13,19 +13,23 @@ const fontSans = Inter({
   variable: "--font-sans",
 });
 
+const title = "Create Complete Apps";
+const description =
+  "Create dynamic web app, content-based website, mobile app, with API and database in a single monorepo.";
+
 export const metadata: Metadata = {
-  title: "Create T3 Turbo",
-  description: "Simple monorepo with shared backend for web & mobile apps",
+  title,
+  description,
   openGraph: {
-    title: "Create T3 Turbo",
-    description: "Simple monorepo with shared backend for web & mobile apps",
-    url: "https://create-t3-turbo.vercel.app",
-    siteName: "Create T3 Turbo",
+    title,
+    description,
+    url: "https://cca.riolly.dev",
+    siteName: title,
   },
   twitter: {
     card: "summary_large_image",
-    site: "@jullerino",
-    creator: "@jullerino",
+    site: "@bertoriolly",
+    creator: "@bertoriolly",
   },
 };
 
